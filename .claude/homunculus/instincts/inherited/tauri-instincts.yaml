@@ -1,0 +1,475 @@
+# Instincts generated from https://github.com/lllyyysss77/tauri
+# Generated: 2026-07-02T10:45:54.403Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: tauri-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, refactor, fix
+
+## Evidence
+
+- 3 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: bump MSRV to 1.90 (#13221), refactor: address MSRV todos (#15586)
+
+---
+id: tauri-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Commit Length
+
+## Action
+
+Keep commit messages concise (~42 characters)
+
+## Evidence
+
+- Average commit message length: 42 chars
+- Based on 3 commits
+
+---
+id: tauri-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: tauri-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: tauri-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: tauri-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: tauri-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: tauri-workflow-update-msrv-and-propagate
+trigger: "when doing update msrv and propagate"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Workflow Update Msrv And Propagate
+
+## Action
+
+Follow the update-msrv-and-propagate workflow:
+1. Update MSRV version in documentation or change log (e.g., .changes/msrv-*.md).
+2. Update MSRV in all Cargo.toml files across the workspace, including examples and templates.
+3. Update MSRV in CI workflow files (e.g., .github/workflows/test-*.yml) to ensure tests run on the new MSRV.
+4. Commit all changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: .changes/msrv-*.md, .github/workflows/test-*.yml, Cargo.toml
+
+---
+id: tauri-workflow-address-msrv-todos-and-security
+trigger: "when doing address msrv todos and security"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Workflow Address Msrv Todos And Security
+
+## Action
+
+Follow the address-msrv-todos-and-security workflow:
+1. Update dependency lockfile (Cargo.lock) and audit configuration (.cargo/audit.toml).
+2. Refactor code in various Rust source files to address MSRV TODO comments and clippy warnings.
+3. Suppress or document security advisories as needed.
+4. Commit all changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: .cargo/audit.toml, Cargo.lock, crates/**/src/**/*.rs
+
+---
+id: tauri-workflow-bugfix-with-example-and-test-updates
+trigger: "when doing bugfix with example and test updates"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/tauri
+---
+
+# Tauri Workflow Bugfix With Example And Test Updates
+
+## Action
+
+Follow the bugfix-with-example-and-test-updates workflow:
+1. Fix bug in main Rust source file(s).
+2. Update example code in examples/**/src-tauri/src/*.rs as needed.
+3. Update or add test code to verify the fix.
+4. Add a change log entry in .changes/.
+5. Commit all changes together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .changes/*.md, crates/**/src/**/*.rs, examples/**/src-tauri/src/*.rs
+
+---
+id: tauri-instinct-file-naming
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct File Naming
+
+## Action
+
+Use PascalCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files: PascalCase
+
+---
+id: tauri-instinct-function-naming
+trigger: "When defining a function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: tauri-instinct-class-naming
+trigger: "When defining a class or struct"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Class Naming
+
+## Action
+
+Use PascalCase for class/struct names
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: tauri-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: tauri-instinct-import-style
+trigger: "When importing modules in Rust code"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Import Style
+
+## Action
+
+Use relative imports
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: tauri-instinct-export-style
+trigger: "When exporting symbols from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: tauri-instinct-test-file-pattern
+trigger: "When creating a test file for TypeScript code"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.ts
+
+---
+id: tauri-instinct-test-type
+trigger: "When writing tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Test Type
+
+## Action
+
+Write unit tests
+
+## Evidence
+
+- Pattern in testing.testTypes: unit
+
+---
+id: tauri-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Commit Format
+
+## Action
+
+Use conventional commit format: <type>: <description>, where type is one of feat, fix, refactor
+
+## Evidence
+
+- Seen in commit: feat: bump MSRV to 1.90 (#13221)
+- Seen in commit: refactor: address MSRV todos (#15586)
+- Seen in commit: fix: mock runtime run on main thread dead locks (#15450)
+
+---
+id: tauri-instinct-commit-length
+trigger: "When composing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 42 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 42
+
+---
+id: tauri-instinct-update-msrv-workflow
+trigger: "When someone wants to bump the MSRV for the project to a newer Rust version"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Update Msrv Workflow
+
+## Action
+
+Update MSRV in documentation (.changes/msrv-*.md), all Cargo.toml files, and CI workflow files (.github/workflows/test-*.yml), then commit all changes together
+
+## Evidence
+
+- Workflow: update-msrv-and-propagate
+- Files: .changes/msrv-*.md, .github/workflows/test-*.yml, Cargo.toml, bench/**/Cargo.toml, crates/**/Cargo.toml, examples/**/Cargo.toml
+
+---
+id: tauri-instinct-address-msrv-todos-workflow
+trigger: "When someone wants to clean up code for new MSRV, resolve clippy lints, and handle security advisories"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Address Msrv Todos Workflow
+
+## Action
+
+Update Cargo.lock and .cargo/audit.toml, refactor Rust code to address MSRV TODOs and clippy warnings, suppress or document security advisories, then commit all changes together
+
+## Evidence
+
+- Workflow: address-msrv-todos-and-security
+- Files: .cargo/audit.toml, Cargo.lock, crates/**/src/**/*.rs
+
+---
+id: tauri-instinct-bugfix-with-examples-workflow
+trigger: "When someone wants to fix a bug that affects both the main codebase and example projects, ensuring coverage with tests"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/tauri
+---
+
+# Tauri Instinct Bugfix With Examples Workflow
+
+## Action
+
+Fix bug in Rust source files, update related example code, update or add tests, add a change log entry in .changes/, and commit all changes together
+
+## Evidence
+
+- Workflow: bugfix-with-example-and-test-updates
+- Files: .changes/*.md, crates/**/src/**/*.rs, examples/**/src-tauri/src/*.rs
+
